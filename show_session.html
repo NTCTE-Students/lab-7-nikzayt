@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Просмотр сессии</title>
+</head>
+<body>
+    <h2>Текущая сессия</h2>
+    <div id="session-data">
+        <p>Загрузка данных сессии...</p>
+    </div>
+    
+    <script>
+        // AJAX запрос для получения данных сессии
+        fetch('init_session.php')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('session-data').innerHTML = `
+                    <p>Имя пользователя: ${data.current_user || 'Не установлено'}</p>
+                `;
+            });
+    </script>
+</body>
+</html>

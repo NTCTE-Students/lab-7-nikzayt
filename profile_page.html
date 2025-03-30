@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Мой профиль</title>
+</head>
+<body>
+    <h2>Страница профиля</h2>
+    <div id="profile-info">
+        <!-- Данные будут загружены через JavaScript -->
+    </div>
+    <a href="logout_handler.php">Выйти из системы</a>
+
+    <script>
+        // Проверка авторизации и загрузка данных
+        if (!sessionStorage.getItem('userAuthenticated')) {
+            alert('Пожалуйста, войдите в систему');
+            window.location.href = '../2_auth_system/auth_form.html';
+        } else {
+            document.getElementById('profile-info').innerHTML = `
+                <p>Имя пользователя: ${sessionStorage.getItem('userName')}</p>
+                <p>Последний вход: ${new Date().toLocaleString()}</p>
+            `;
+        }
+    </script>
+</body>
+</html>
