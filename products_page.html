@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Наши товары</title>
+</head>
+<body>
+    <h2>Доступные товары</h2>
+    <ul>
+        <li>Ноутбук <button onclick="addToCart(1)">Добавить в корзину</button></li>
+        <li>Смартфон <button onclick="addToCart(2)">Добавить в корзину</button></li>
+        <li>Наушники <button onclick="addToCart(3)">Добавить в корзину</button></li>
+    </ul>
+    <a href="view_cart.php">Просмотреть корзину</a>
+
+    <script>
+        function addToCart(productId) {
+            fetch(`cart_operations.php?action=add&product_id=${productId}`)
+                .then(response => alert('Товар добавлен в корзину'));
+        }
+    </script>
+</body>
+</html>
